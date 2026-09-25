@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Proyectos | Material de clase</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #20283a;
+    }
+
+    header {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    header p { margin: 0; color: #dbeafe; }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px #17255412;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #17255414;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #e9edf5;
+    }
+
+    .card-info { padding: 16px; text-align: center; }
+
+    .card-info h2 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+    }
+
+    .download {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 7px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .download:hover { background: #1d4ed8; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mis Proyectos</h1>
+    <p>Material de referencia para las actividades de programación</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Galería de diseños</h2>
+      <p>
+        En esta sección encontrarás las imágenes que vamos a utilizar como referencia
+        para construir nuestros proyectos en clase. Observá los diseños y descargá
+        la imagen que necesites haciendo clic en <strong>Descargar imagen</strong>.
+      </p>
+      <p>
+        Por ahora, esta página funciona como una galería de imágenes.
+        Más adelante iremos agregando las consignas y actividades.
+      </p>
+    </section>
+
+    <section class="gallery" aria-label="Galería de imágenes">
+
+      <article class="card">
+        <img src="./imagenes/proyecto1.jpg"
+             alt="Diseño de referencia del proyecto 1"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 1</h2>
+          <a class="download"
+             href="./imagenes/proyecto1.jpg"
+             download="proyecto1.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto2.jpg"
+             alt="Diseño de referencia del proyecto 2"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 2</h2>
+          <a class="download"
+             href="./imagenes/proyecto2.jpg"
+             download="proyecto2.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto3.jpg"
+             alt="Diseño de referencia del proyecto 3"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 3</h2>
+          <a class="download"
+             href="./imagenes/proyecto3.jpg"
+             download="proyecto3.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto4.jpg"
+             alt="Diseño de referencia del proyecto 4"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 4</h2>
+          <a class="download"
+             href="./imagenes/proyecto4.jpg"
+             download="proyecto4.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto5.jpg"
+             alt="Diseño de referencia del proyecto 5"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 5</h2>
+          <a class="download"
+             href="./imagenes/proyecto5.jpg"
+             download="proyecto5.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto6.jpg"
+             alt="Diseño de referencia del proyecto 6"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 6</h2>
+          <a class="download"
+             href="./imagenes/proyecto6.jpg"
+             download="proyecto6.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto7.jpg"
+             alt="Diseño de referencia del proyecto 7"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 7</h2>
+          <a class="download"
+             href="./imagenes/proyecto7.jpg"
+             download="proyecto7.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto8.jpg"
+             alt="Diseño de referencia del proyecto 8"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 8</h2>
+          <a class="download"
+             href="./imagenes/proyecto8.jpg"
+             download="proyecto8.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="./imagenes/proyecto9.jpg"
+             alt="Diseño de referencia del proyecto 9"
+             loading="lazy">
+        <div class="card-info">
+          <h2>Diseño 9</h2>
+          <a class="download"
+             href="./imagenes/proyecto9.jpg"
+             download="proyecto9.jpg">
+             Descargar imagen
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>Actividad de programación · HTML, CSS y JavaScript</footer>
+
+  <script>
+    // Descarga robusta: intenta con fetch + Blob (funciona en http/https,
+    // incluida GitHub Pages) y si falla (por ejemplo abriendo el archivo
+    // como file:// local), deja que el navegador use el atributo download
+    // normal como respaldo.
+    document.querySelectorAll('.download').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var url = link.getAttribute('href');
+        var filename = link.getAttribute('download') || 'imagen.jpg';
+
+        // En file:// el fetch a rutas relativas suele fallar por CORS,
+        // así que en ese caso dejamos que actúe el comportamiento normal.
+        if (window.location.protocol === 'file:') {
+          return; // no prevenimos el default: usa el download nativo
+        }
+
+        event.preventDefault();
+
+        fetch(url)
+          .then(function (response) {
+            if (!response.ok) throw new Error('No se pudo obtener la imagen');
+            return response.blob();
+          })
+          .then(function (blob) {
+            var blobUrl = URL.createObjectURL(blob);
+            var tempLink = document.createElement('a');
+            tempLink.href = blobUrl;
+            tempLink.download = filename;
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+            URL.revokeObjectURL(blobUrl);
+          })
+          .catch(function (err) {
+            console.error('Error al descargar la imagen:', err);
+            // Respaldo: abrir la imagen en una pestaña nueva
+            window.open(url, '_blank');
+          });
+      });
+    });
+  </script>
+</body>
+</html>
