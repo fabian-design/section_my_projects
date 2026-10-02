@@ -1,0 +1,436 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ACTIVIDAD_IMAGENES | Mis Proyectos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #20283a;
+    }
+
+    header {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    header p {
+      margin: 0;
+      color: #dbeafe;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 10px 16px;
+      border-radius: 7px;
+      background: #64748b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .volver:hover {
+      background: #475569;
+    }
+
+    .titulo {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px #17255412;
+    }
+
+    .titulo h2 {
+      margin-top: 0;
+      color: #172554;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #17255414;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #e9edf5;
+    }
+
+    .card-info {
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card-info h2 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+    }
+
+    .download {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 7px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .download:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>ACTIVIDAD_IMAGENES</h1>
+    <p>Imágenes de referencia para las actividades de programación</p>
+  </header>
+
+  <main>
+
+    <a href="index.html" class="volver">
+      ← Volver al inicio
+    </a>
+
+    <section class="titulo">
+
+      <h2>Imágenes de referencia</h2>
+
+      <p>
+        Seleccioná la imagen que necesites y hacé clic en
+        <strong>Descargar imagen</strong>.
+      </p>
+
+    </section>
+
+    <section class="gallery">
+
+      <!-- IMAGEN 1 -->
+
+      <article class="card">
+
+        <img src="proyecto1.jpg"
+             alt="Diseño de referencia del proyecto 1"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 1</h2>
+
+          <a class="download"
+             href="proyecto1.jpg"
+             download="proyecto1.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 2 -->
+
+      <article class="card">
+
+        <img src="proyecto2.jpg"
+             alt="Diseño de referencia del proyecto 2"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 2</h2>
+
+          <a class="download"
+             href="proyecto2.jpg"
+             download="proyecto2.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 3 -->
+
+      <article class="card">
+
+        <img src="proyecto3.jpg"
+             alt="Diseño de referencia del proyecto 3"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 3</h2>
+
+          <a class="download"
+             href="proyecto3.jpg"
+             download="proyecto3.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 4 -->
+
+      <article class="card">
+
+        <img src="proyecto4.jpg"
+             alt="Diseño de referencia del proyecto 4"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 4</h2>
+
+          <a class="download"
+             href="proyecto4.jpg"
+             download="proyecto4.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 5 -->
+
+      <article class="card">
+
+        <img src="proyecto5.jpg"
+             alt="Diseño de referencia del proyecto 5"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 5</h2>
+
+          <a class="download"
+             href="proyecto5.jpg"
+             download="proyecto5.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 6 -->
+
+      <article class="card">
+
+        <img src="proyecto6.jpg"
+             alt="Diseño de referencia del proyecto 6"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 6</h2>
+
+          <a class="download"
+             href="proyecto6.jpg"
+             download="proyecto6.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 7 -->
+
+      <article class="card">
+
+        <img src="proyecto7.jpg"
+             alt="Diseño de referencia del proyecto 7"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 7</h2>
+
+          <a class="download"
+             href="proyecto7.jpg"
+             download="proyecto7.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 8 -->
+
+      <article class="card">
+
+        <img src="proyecto8.jpg"
+             alt="Diseño de referencia del proyecto 8"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 8</h2>
+
+          <a class="download"
+             href="proyecto8.jpg"
+             download="proyecto8.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMAGEN 9 -->
+
+      <article class="card">
+
+        <img src="proyecto9.jpg"
+             alt="Diseño de referencia del proyecto 9"
+             loading="lazy">
+
+        <div class="card-info">
+
+          <h2>Diseño 9</h2>
+
+          <a class="download"
+             href="proyecto9.jpg"
+             download="proyecto9.jpg">
+             Descargar imagen
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Actividad de programación · HTML, CSS y JavaScript
+  </footer>
+
+
+  <script>
+
+    document.querySelectorAll('.download').forEach(function (link) {
+
+      link.addEventListener('click', function (event) {
+
+        var url = link.getAttribute('href');
+        var filename = link.getAttribute('download') || 'imagen.jpg';
+
+        if (window.location.protocol === 'file:') {
+          return;
+        }
+
+        event.preventDefault();
+
+        fetch(url)
+
+          .then(function (response) {
+
+            if (!response.ok) {
+              throw new Error('No se pudo obtener la imagen');
+            }
+
+            return response.blob();
+
+          })
+
+          .then(function (blob) {
+
+            var blobUrl = URL.createObjectURL(blob);
+
+            var tempLink = document.createElement('a');
+
+            tempLink.href = blobUrl;
+            tempLink.download = filename;
+
+            document.body.appendChild(tempLink);
+
+            tempLink.click();
+
+            tempLink.remove();
+
+            URL.revokeObjectURL(blobUrl);
+
+          })
+
+          .catch(function (err) {
+
+            console.error(
+              'Error al descargar la imagen:',
+              err
+            );
+
+            window.open(url, '_blank');
+
+          });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
