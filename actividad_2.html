@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACTIVIDAD_2 | Material de referencia</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #20283a;
+    }
+    header {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 36px 20px;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+    header p { margin: 0; color: #dbeafe; }
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
+    .volver {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 10px 16px;
+      border-radius: 7px;
+      background: #64748b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .volver:hover { background: #475569; }
+    .enunciado {
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px #17255412;
+      line-height: 1.7;
+    }
+    .enunciado h2 {
+      margin-top: 0;
+      color: #172554;
+    }
+    .enunciado p { margin-bottom: 10px; }
+    .referencias {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .hoja {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px #17255414;
+    }
+    .hoja h3 {
+      margin: 0;
+      padding: 16px;
+      text-align: center;
+      background: #e9edf5;
+      color: #172554;
+      font-size: 1.1rem;
+    }
+    .hoja img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: white;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: .9rem;
+    }
+    @media (max-width: 800px) {
+      .referencias { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ACTIVIDAD_2</h1>
+    <p>Material de referencia para la actividad</p>
+  </header>
+
+  <main>
+
+    <a href="index.html" class="volver">← Volver al inicio</a>
+
+    <section class="enunciado">
+      <h2>Enunciado</h2>
+
+      <p>
+        Observá atentamente las dos hojas de información que se presentan
+        a continuación.
+      </p>
+
+      <p>
+        La primera hoja contiene ejemplos de código SQL para la creación
+        de una base de datos, una tabla, el ingreso de registros y
+        diferentes consultas.
+      </p>
+
+      <p>
+        La segunda hoja contiene un ejemplo de código PHP utilizado para
+        establecer una conexión con una base de datos MySQL y verificar
+        si la conexión se realizó correctamente.
+      </p>
+
+      <p>
+        <strong>
+          Utilizá ambas hojas como material de referencia para realizar
+          la actividad indicada por el docente.
+        </strong>
+      </p>
+    </section>
+
+    <section class="referencias">
+
+      <article class="hoja">
+        <h3>Hoja 1 · SQL</h3>
+        <img
+          src="imagenes/actividad2_hoja1.png"
+          alt="Hoja de apuntes con código SQL"
+        >
+      </article>
+
+      <article class="hoja">
+        <h3>Hoja 2 · PHP y MySQL</h3>
+        <img
+          src="imagenes/actividad2_hoja2.png"
+          alt="Hoja de apuntes con código PHP para conexión a MySQL"
+        >
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Actividad de programación · HTML, CSS y JavaScript
+  </footer>
+
+</body>
+</html>
