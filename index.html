@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Mis Proyectos | Material de clase</title>
 
   <style>
@@ -18,144 +18,315 @@
       color: #20283a;
     }
 
+    /* =========================
+       ENCABEZADO
+    ========================= */
+
     header {
-      background: #172554;
+      background: linear-gradient(135deg, #172554, #1e3a8a);
       color: white;
       text-align: center;
-      padding: 36px 20px;
+      padding: 45px 20px;
     }
 
     header h1 {
       margin: 0 0 10px;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: .5px;
     }
 
     header p {
       margin: 0;
       color: #dbeafe;
+      font-size: 1rem;
     }
+
+    /* =========================
+       CONTENIDO PRINCIPAL
+    ========================= */
 
     main {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 28px 18px 50px;
+      padding: 35px 18px 55px;
     }
+
+    /* =========================
+       INTRODUCCIÓN
+    ========================= */
 
     .intro {
       background: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 24px;
+      border-radius: 14px;
+      padding: 25px 28px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 16px #17255412;
-      line-height: 1.6;
+      border-left: 5px solid #2563eb;
     }
 
-    /* BLOQUE ACTIVIDAD */
+    .intro h2 {
+      margin: 0 0 10px;
+      color: #172554;
+      font-size: 1.4rem;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       ACTIVIDADES
+    ========================= */
+
+    .actividades {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
 
     .actividad {
       background: white;
       border-radius: 14px;
-      padding: 35px 25px;
+      padding: 28px 22px;
       text-align: center;
       box-shadow: 0 4px 16px #17255414;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform .2s ease, box-shadow .2s ease;
+      border-top: 4px solid #2563eb;
     }
 
     .actividad:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 22px #17255425;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px #17255425;
+    }
+
+    /* Número de actividad */
+
+    .numero {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      background: #dbeafe;
+      color: #1d4ed8;
+
+      font-size: 1.1rem;
+      font-weight: bold;
     }
 
     .actividad h2 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: #172554;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
 
     .actividad p {
+      min-height: 48px;
+      margin: 0 0 22px;
       color: #64748b;
-      margin-bottom: 22px;
+      line-height: 1.5;
+      font-size: .95rem;
     }
+
+    /* =========================
+       BOTÓN
+    ========================= */
 
     .boton {
       display: inline-block;
-      padding: 12px 22px;
+      padding: 11px 20px;
       border-radius: 8px;
+
       background: #2563eb;
       color: white;
+
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.2s;
+
+      transition: background .2s ease, transform .2s ease;
     }
 
     .boton:hover {
       background: #1d4ed8;
+      transform: translateY(-1px);
     }
+
+    /* =========================
+       PIE DE PÁGINA
+    ========================= */
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 22px;
       color: #64748b;
       font-size: .9rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .actividades {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 35px 18px;
+      }
+
+      main {
+        padding: 25px 15px 40px;
+      }
+
+      .actividades {
+        grid-template-columns: 1fr;
+      }
+
+      .intro {
+        padding: 22px;
+      }
+
     }
   </style>
 </head>
 
 <body>
 
+  <!-- =========================
+       ENCABEZADO
+  ========================== -->
+
   <header>
+
     <h1>Mis Proyectos</h1>
-    <p>Material de referencia para las actividades de programación</p>
+
+    <p>
+      Material de referencia para las actividades de programación
+    </p>
+
   </header>
+
+
+  <!-- =========================
+       CONTENIDO
+  ========================== -->
 
   <main>
 
+    <!-- INTRODUCCIÓN -->
+
     <section class="intro">
+
       <h2>Material de clase</h2>
 
       <p>
         En esta sección encontrarás las actividades y materiales
         que vamos a utilizar durante las clases de programación.
       </p>
+
     </section>
 
-    <!-- ACTIVIDAD_IMAGENES -->
 
-    <section class="actividad">
+    <!-- ACTIVIDADES -->
 
-      <h2>ACTIVIDAD IMAGENES</h2>
+    <section class="actividades">
 
-      <p>
-    
-      </p>
 
-      <a href="actividad_imagenes.html" class="boton">
-        Ver actividad
-      </a>
+      <!-- ACTIVIDAD IMÁGENES -->
 
-      <h2>ACTIVIDAD 1</h2>
-      <p></p>
-      <a href="actividad_1.html" class="boton">Ver actividad</a>
+      <article class="actividad">
 
-      
-      <h2>ACTIVIDAD 2</h2>
-      <p></p>
-      <a href="actividad_2.html" class="boton">Ver actividad</a>
+        <div class="numero">
+          IMG
+        </div>
 
-    
-      
-    
+        <h2>ACTIVIDAD IMÁGENES</h2>
+
+        <p>
+          Imágenes de referencia para los proyectos y actividades.
+        </p>
+
+        <a
+          href="actividad_imagenes.html"
+          class="boton">
+          Ver actividad
+        </a>
+
+      </article>
+
+
+      <!-- ACTIVIDAD 1 -->
+
+      <article class="actividad">
+
+        <div class="numero">
+          01
+        </div>
+
+        <h2>ACTIVIDAD 1</h2>
+
+        <p>
+          Estructura HTML del bloque de proyectos.
+        </p>
+
+        <a
+          href="actividad_1.html"
+          class="boton">
+          Ver actividad
+        </a>
+
+      </article>
+
+
+      <!-- ACTIVIDAD 2 -->
+
+      <article class="actividad">
+
+        <div class="numero">
+          02
+        </div>
+
+        <h2>ACTIVIDAD 2</h2>
+
+        <p>
+          Material de referencia para la actividad.
+        </p>
+
+        <a
+          href="actividad_2.html"
+          class="boton">
+          Ver actividad
+        </a>
+
+      </article>
 
 
     </section>
 
   </main>
 
+
+  <!-- =========================
+       PIE
+  ========================== -->
+
   <footer>
+
     Actividad de programación · HTML, CSS y JavaScript
+
   </footer>
 
 </body>
 </html>
-```
-
