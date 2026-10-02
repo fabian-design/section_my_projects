@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ACTIVIDAD_1 | Estructura HTML</title>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #20283a;
+    }
+
+    header {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+    }
+
+    header p {
+      margin: 0;
+      color: #dbeafe;
+    }
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 30px 18px 50px;
+    }
+
+    /* BLOQUES SUPERIORES */
+
+    .parte-superior {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .bloque {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 16px #17255414;
+    }
+
+    .bloque h2 {
+      color: #172554;
+      margin-top: 0;
+    }
+
+    .enunciado {
+      line-height: 1.6;
+    }
+
+    .enunciado p {
+      margin-bottom: 14px;
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    /* IMAGEN */
+
+    .referencia {
+      text-align: center;
+    }
+
+    .referencia img {
+      display: block;
+      width: 100%;
+      max-height: 750px;
+      object-fit: contain;
+      margin: auto;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* EDITOR */
+
+    .editor-bloque {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 16px #17255414;
+    }
+
+    .editor-bloque h2 {
+      color: #172554;
+      margin-top: 0;
+    }
+
+    .editor-bloque p {
+      color: #64748b;
+    }
+
+    .CodeMirror {
+      height: 500px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    .CodeMirror-linenumbers {
+      background: #282a36;
+    }
+
+    .CodeMirror-linenumber {
+      color: #6272a4;
+    }
+
+    .CodeMirror-cursor {
+      border-left: 2px solid white;
+    }
+
+    .CodeMirror-selected {
+      background: #44475a !important;
+    }
+
+    /* BOTONES */
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .boton {
+      padding: 11px 18px;
+      border-radius: 7px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background: #1d4ed8;
+    }
+
+    .borrar {
+      background: #dc2626;
+    }
+
+    .borrar:hover {
+      background: #b91c1c;
+    }
+
+    .volver {
+      background: #64748b;
+    }
+
+    .volver:hover {
+      background: #475569;
+    }
+
+    #mensaje {
+      margin-top: 12px;
+      min-height: 20px;
+      color: #16a34a;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 20px;
+      color: #64748b;
+      font-size: .9rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .parte-superior {
+        grid-template-columns: 1fr;
+      }
+
+      .referencia img {
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>ACTIVIDAD_1</h1>
+  <p>Estructura HTML del bloque de proyectos</p>
+</header>
+
+<main>
+
+  <!-- ==================================================
+       BLOQUES SUPERIORES: ENUNCIADO + IMAGEN
+  =================================================== -->
+
+  <section class="parte-superior">
+
+    <!-- ENUNCIADO -->
+
+    <article class="bloque enunciado">
+
+      <h2>Actividad: Estructura HTML</h2>
+
+      <p>
+        Para comenzar a construir esta sección, primero vamos a crear una
+        <strong>estructura HTML</strong> que contenga todos los elementos
+        necesarios para mostrar nuestros proyectos.
+      </p>
+
+      <p>
+        La estructura comenzará con una <strong>sección principal</strong>,
+        dentro de la cual tendremos el título <strong>“Mis Proyectos”</strong>
+        mediante una etiqueta <code>&lt;h3&gt;</code>.
+      </p>
+
+      <p>
+        Luego agregaremos un bloque que contendrá las diferentes
+        <strong>filas</strong> de proyectos y, dentro de cada fila, otro
+        bloque correspondiente a cada <strong>proyecto</strong>.
+      </p>
+
+      <p>
+        Es importante diferenciar estos dos elementos:
+        la <strong>fila</strong> será el bloque que contiene los proyectos,
+        mientras que cada <strong>proyecto</strong> representará una
+        columna dentro de esa fila.
+      </p>
+
+      <p>
+        Cada proyecto tendrá una etiqueta <code>&lt;a&gt;</code> que
+        permitirá colocar el enlace hacia el proyecto que queremos abrir.
+      </p>
+
+      <p>
+        Dentro del enlace colocaremos una etiqueta <code>&lt;img&gt;</code>
+        para mostrar la imagen correspondiente, indicando su
+        <strong>ruta</strong>, es decir, la ubicación donde se encuentra
+        guardada la imagen.
+      </p>
+
+      <p>
+        Finalmente, tendremos un bloque de información que contendrá
+        la descripción del proyecto mediante una etiqueta
+        <code>&lt;h4&gt;</code> y un párrafo <code>&lt;p&gt;</code>.
+      </p>
+
+      <p>
+        <strong>
+          En esta primera etapa vamos a concentrarnos únicamente en
+          construir y comprender la estructura HTML.
+        </strong>
+      </p>
+
+      <p>
+        Los nombres de <code>id</code> y <code>class</code> que aparecen
+        en el ejemplo se utilizarán posteriormente para aplicar los
+        estilos mediante CSS. Por ahora no vamos a trabajar sobre ellos.
+      </p>
+
+      <p>
+        Los números <strong>1, 2, 3, 4, 5, 6, 7 y 8</strong> que aparecen
+        como comentarios sirven únicamente para identificar las diferentes
+        partes de la estructura. Posteriormente serán utilizados como
+        referencia para aplicar los estilos en otro archivo CSS.
+      </p>
+
+    </article>
+
+    <!-- IMAGEN -->
+
+    <article class="bloque referencia">
+
+      <h2>Imagen de referencia</h2>
+
+      <img src="estructura_proyectos.png"
+           alt="Estructura HTML del bloque de proyectos">
+
+    </article>
+
+  </section>
+
+
+  <!-- ==================================================
+       EDITOR: OCUPA TODO EL ANCHO
+  =================================================== -->
+
+  <section class="editor-bloque">
+
+    <h2>Tu resolución</h2>
+
+    <p>
+      Escribí en el siguiente editor la estructura HTML solicitada
+      en el enunciado. El editor funciona de manera similar a
+      Visual Studio Code.
+    </p>
+
+    <textarea id="respuesta"></textarea>
+
+    <div class="botones">
+
+      <button class="boton" onclick="guardarRespuesta()">
+        Guardar respuesta
+      </button>
+
+      <button class="boton borrar" onclick="borrarRespuesta()">
+        Borrar respuesta
+      </button>
+
+      <a href="index.html" class="boton volver">
+        ← Volver
+      </a>
+
+    </div>
+
+    <div id="mensaje"></div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <div id="fecha"></div>
+  <div>
+    © <span id="anio"></span> Fabian Ameneiros · Analista en Informática
+  </div>
+</footer>
+
+
+<script>
+
+  /* =========================================
+     FECHA DINÁMICA
+  ========================================= */
+
+  const ahora = new Date();
+
+  const opcionesFecha = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  };
+
+  document.getElementById("fecha").textContent =
+    "Fecha: " +
+    ahora.toLocaleDateString("es-AR", opcionesFecha);
+
+  document.getElementById("anio").textContent =
+    ahora.getFullYear();
+
+
+  /* =========================================
+     EDITOR CODEMIRROR
+  ========================================= */
+
+  const editor = CodeMirror.fromTextArea(
+    document.getElementById("respuesta"),
+    {
+      mode: "htmlmixed",
+      theme: "dracula",
+      lineNumbers: true,
+      lineWrapping: false,
+      indentUnit: 2,
+      tabSize: 2,
+      indentWithTabs: false,
+      autofocus: false,
+
+      extraKeys: {
+        "Tab": function(cm) {
+          cm.replaceSelection("  ");
+        }
+      }
+    }
+  );
+
+
+  const mensaje =
+    document.getElementById("mensaje");
+
+
+  /* =========================================
+     CARGAR RESPUESTA GUARDADA
+  ========================================= */
+
+  window.addEventListener("load", function () {
+
+    const respuestaGuardada =
+      localStorage.getItem("respuesta_actividad_1");
+
+    if (respuestaGuardada !== null) {
+
+      editor.setValue(respuestaGuardada);
+
+      mensaje.textContent =
+        "✓ Se recuperó tu respuesta guardada.";
+
+    }
+
+  });
+
+
+  /* =========================================
+     GUARDAR RESPUESTA
+  ========================================= */
+
+  function guardarRespuesta() {
+
+    localStorage.setItem(
+      "respuesta_actividad_1",
+      editor.getValue()
+    );
+
+    mensaje.textContent =
+      "✓ Respuesta guardada correctamente.";
+
+  }
+
+
+  /* =========================================
+     BORRAR RESPUESTA
+  ========================================= */
+
+  function borrarRespuesta() {
+
+    const confirmar =
+      confirm("¿Seguro que querés borrar la respuesta?");
+
+    if (confirmar) {
+
+      editor.setValue("");
+
+      localStorage.removeItem(
+        "respuesta_actividad_1"
+      );
+
+      mensaje.textContent =
+        "La respuesta fue borrada.";
+
+    }
+
+  }
+
+
+  /* =========================================
+     GUARDADO AUTOMÁTICO
+  ========================================= */
+
+  editor.on("change", function () {
+
+    localStorage.setItem(
+      "respuesta_actividad_1",
+      editor.getValue()
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
