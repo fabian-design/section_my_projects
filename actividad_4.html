@@ -214,24 +214,51 @@
 <body>
     <header>
         <h1>ACTIVIDAD_4</h1>
-        <p>Archivo style.css · Diseño gráfico de la página web</p>
+        <p>Archivo index.html y style.css · Diseño gráfico de la página web</p>
     </header>
     <main>
-        <section class="enunciado">
-            <h2>Actividad: Estilos CSS del portfolio</h2>
-            <p>En esta actividad vamos a trabajar con <code>style.css</code>, el archivo que define el <strong>diseño
-                    visual</strong> de la página web: distribución, tamaños, colores, imágenes y efectos al pasar el
-                cursor.</p>
-            <p>Los selectores se relacionan con la estructura HTML creada en la <strong>Actividad 1</strong>. Allí
-                numeramos del <strong>1 al 8</strong> los niveles de <code>#portfolio</code> y sus elementos internos.
-                Esos números permiten reconocer qué bloque recibe cada estilo y cómo se avanza desde la sección
-                principal hacia la fila, el proyecto, la imagen y la información.</p>
-            <p>Observá cómo cada selector —por ejemplo, <code>#portfolio .fila .proyecto</code>— identifica un elemento
-                de la estructura y aplica propiedades con valores que determinan su apariencia. También se incluyen
-                efectos <code>:hover</code> para mostrar la imagen en color y revelar la información del proyecto.</p>
-            <p><strong>Consigna:</strong> transcribí en el editor las reglas CSS de las dos hojas de referencia,
-                respetando los selectores, propiedades y valores de tus apuntes.</p>
-        </section>
+ 
+<section class="enunciado">
+    <h2>Actividad: Estructura HTML y estilos CSS del portfolio</h2>
+
+    <p>
+        En esta actividad vamos a trabajar con los archivos
+        <code>index.html</code> y <code>style.css</code>, que forman
+        parte del desarrollo de nuestro portfolio de proyectos.
+        El archivo HTML define la <strong>estructura y el contenido</strong>
+        de la página, mientras que el archivo CSS establece su
+        <strong>diseño visual</strong>: distribución, tamaños,
+        colores, imágenes y efectos.
+    </p>
+
+    <p>
+        En la referencia HTML se encuentra la estructura de la sección
+        <code>#portfolio</code>, organizada mediante etiquetas y clases.
+        Los números del <strong>1 al 8</strong> permiten identificar
+        los diferentes niveles de anidamiento, desde la sección principal
+        hasta la fila, cada proyecto, el enlace, la imagen y la información.
+    </p>
+
+    <p>
+        En la referencia CSS se encuentran las reglas que permiten
+        dar estilo a cada uno de esos elementos. Observá cómo los
+        selectores, por ejemplo <code>#portfolio .fila .proyecto</code>,
+        identifican los elementos HTML y aplican propiedades que
+        determinan su apariencia. También se incorporan efectos
+        <code>:hover</code> para mostrar las imágenes en color y
+        revelar la información de cada proyecto.
+    </p>
+
+    <p>
+        <strong>Consigna:</strong> transcribí en el editor los códigos
+        HTML y CSS de las referencias, respetando las etiquetas,
+        los atributos, los selectores, las propiedades y sus valores.
+        Prestá atención a la estructura de los elementos y a la
+        correspondencia entre las clases e identificadores utilizados
+        en ambos archivos.
+    </p>
+</section>
+
         <section class="referencias">
             <article class="hoja">
                 <h2>Imagen de referencia · Hoja 1</h2><img src="img/html, css.png"
@@ -240,16 +267,7 @@
             </article>
 
         </section>
-        <section class="editor-bloque">
-            <h2>Tu resolución</h2>
-            <p>Escribí las reglas CSS indicadas en las imágenes. El editor incluye resaltado de sintaxis y guardado
-                automático en este navegador.</p>
-            <textarea id="respuesta"></textarea>
-            <div class="botones"><button class="boton" onclick="guardarRespuesta()">Guardar respuesta</button><button
-                    class="boton borrar" onclick="borrarRespuesta()">Borrar respuesta</button><a href="index.html"
-                    class="boton volver">← Volver</a></div>
-            <div id="mensaje" role="status" aria-live="polite"></div>
-        </section>
+    
     </main>
     <footer>
         <div id="fecha"></div>
