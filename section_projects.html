@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVIDAD_4 | Diseño con CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f5f9;
+            color: #20283a
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 30px 20px
+        }
+
+        header h1 {
+            margin: 0 0 8px
+        }
+
+        header p {
+            margin: 0;
+            color: #dbeafe
+        }
+
+        main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 30px 18px 50px
+        }
+
+        .enunciado,
+        .hoja,
+        .editor-bloque {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 16px #17255414;
+            min-width: 0
+        }
+
+        .enunciado {
+            margin-bottom: 24px;
+            line-height: 1.6
+        }
+
+        .enunciado h2,
+        .hoja h2,
+        .editor-bloque h2 {
+            color: #172554;
+            margin-top: 0
+        }
+
+        .enunciado p {
+            margin-bottom: 12px
+        }
+
+        code {
+            background: #e2e8f0;
+            padding: 2px 5px;
+            border-radius: 4px
+        }
+
+        .referencias {
+            display: block;
+            margin-bottom: 24px
+        }
+
+        .hoja {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 16px #17255414;
+            min-width: 0
+        }
+
+        .hojas-imagenes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: start
+        }
+
+        .hoja img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px
+        }
+
+        .hoja p,
+        .editor-bloque p {
+            color: #64748b;
+            font-size: .95rem;
+            line-height: 1.5
+        }
+
+        .pie-hoja {
+            color: #64748b;
+            font-size: .9rem;
+            line-height: 1.45;
+            margin: 10px 0 0
+        }
+
+        .CodeMirror {
+            height: 500px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 15px;
+            text-align: left
+        }
+
+        .CodeMirror-linenumbers {
+            background: #282a36
+        }
+
+        .CodeMirror-linenumber {
+            color: #6272a4
+        }
+
+        .CodeMirror-cursor {
+            border-left: 2px solid white
+        }
+
+        .CodeMirror-selected {
+            background: #44475a !important
+        }
+
+        .botones {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .boton {
+            padding: 11px 18px;
+            border-radius: 7px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px
+        }
+
+        .boton:hover {
+            background: #1d4ed8
+        }
+
+        .borrar {
+            background: #dc2626
+        }
+
+        .borrar:hover {
+            background: #b91c1c
+        }
+
+        .volver {
+            background: #64748b
+        }
+
+        .volver:hover {
+            background: #475569
+        }
+
+        #mensaje {
+            margin-top: 12px;
+            min-height: 20px;
+            color: #16a34a;
+            font-size: 14px;
+            font-weight: bold
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px 20px;
+            color: #64748b;
+            font-size: .9rem;
+            border-top: 1px solid #e2e8f0
+        }
+
+        @media(max-width:850px) {
+            .hojas-imagenes {
+                grid-template-columns: 1fr
+            }
+
+            .hoja,
+            .enunciado,
+            .editor-bloque {
+                padding: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ACTIVIDAD_4</h1>
+        <p>Archivo style.css · Diseño gráfico de la página web</p>
+    </header>
+    <main>
+        <section class="enunciado">
+            <h2>Actividad: Estilos CSS del portfolio</h2>
+            <p>En esta actividad vamos a trabajar con <code>style.css</code>, el archivo que define el <strong>diseño
+                    visual</strong> de la página web: distribución, tamaños, colores, imágenes y efectos al pasar el
+                cursor.</p>
+            <p>Los selectores se relacionan con la estructura HTML creada en la <strong>Actividad 1</strong>. Allí
+                numeramos del <strong>1 al 8</strong> los niveles de <code>#portfolio</code> y sus elementos internos.
+                Esos números permiten reconocer qué bloque recibe cada estilo y cómo se avanza desde la sección
+                principal hacia la fila, el proyecto, la imagen y la información.</p>
+            <p>Observá cómo cada selector —por ejemplo, <code>#portfolio .fila .proyecto</code>— identifica un elemento
+                de la estructura y aplica propiedades con valores que determinan su apariencia. También se incluyen
+                efectos <code>:hover</code> para mostrar la imagen en color y revelar la información del proyecto.</p>
+            <p><strong>Consigna:</strong> transcribí en el editor las reglas CSS de las dos hojas de referencia,
+                respetando los selectores, propiedades y valores de tus apuntes.</p>
+        </section>
+        <section class="referencias">
+            <article class="hoja">
+                <h2>Imagen de referencia · Hoja 1</h2><img src="img/html, css.png"
+                    alt="Apunte original de style.css, primera hoja">
+                <p>Contenedor principal, título de sección, fila de proyectos y bloque de cada proyecto.</p>
+            </article>
+
+        </section>
+        <section class="editor-bloque">
+            <h2>Tu resolución</h2>
+            <p>Escribí las reglas CSS indicadas en las imágenes. El editor incluye resaltado de sintaxis y guardado
+                automático en este navegador.</p>
+            <textarea id="respuesta"></textarea>
+            <div class="botones"><button class="boton" onclick="guardarRespuesta()">Guardar respuesta</button><button
+                    class="boton borrar" onclick="borrarRespuesta()">Borrar respuesta</button><a href="index.html"
+                    class="boton volver">← Volver</a></div>
+            <div id="mensaje" role="status" aria-live="polite"></div>
+        </section>
+    </main>
+    <footer>
+        <div id="fecha"></div>
+        <div>© <span id="anio"></span> Fabian Ameneiros · Analista en Informática</div>
+    </footer>
+    <script>
+        const ahora = new Date();
+        document.getElementById("fecha").textContent = "Fecha: " + ahora.toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "numeric" });
+        document.getElementById("anio").textContent = ahora.getFullYear();
+        const editor = CodeMirror.fromTextArea(document.getElementById("respuesta"), { mode: "css", theme: "dracula", lineNumbers: true, lineWrapping: false, indentUnit: 2, tabSize: 2, indentWithTabs: false, autofocus: false, extraKeys: { "Tab": function (cm) { cm.replaceSelection("  "); } } });
+        const mensaje = document.getElementById("mensaje"), claveRespuesta = "respuesta_actividad_4";
+        window.addEventListener("load", function () { const guardada = localStorage.getItem(claveRespuesta); if (guardada !== null) { editor.setValue(guardada); mensaje.textContent = "✓ Se recuperó tu respuesta guardada."; } });
+        function guardarRespuesta() { localStorage.setItem(claveRespuesta, editor.getValue()); mensaje.textContent = "✓ Respuesta guardada correctamente."; }
+        function borrarRespuesta() { if (confirm("¿Seguro que querés borrar la respuesta?")) { editor.setValue(""); localStorage.removeItem(claveRespuesta); mensaje.textContent = "La respuesta fue borrada."; } }
+        editor.on("change", function () { localStorage.setItem(claveRespuesta, editor.getValue()); });
+    </script>
+</body>
+
+</html>
