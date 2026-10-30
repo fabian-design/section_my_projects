@@ -1,205 +1,559 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACTIVIDAD_3 | Login y base de datos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+    <title>ACTIVIDAD_3 | Login y base de datos</title>
 
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f5f9;
-      color: #20283a;
-    }
-    header {
-      background: #172554;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header h1 { margin: 0 0 8px; }
-    header p { margin: 0; color: #dbeafe; }
-    main { max-width: 1250px; margin: auto; padding: 30px 18px 50px; }
-    .parte-superior {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-      margin-bottom: 24px;
-    }
-    .bloque, .editor-bloque {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 16px #17255414;
-      min-width: 0;
-    }
-    .bloque h2, .editor-bloque h2 { color: #172554; margin-top: 0; }
-    .enunciado { line-height: 1.6; }
-    .enunciado p { margin-bottom: 14px; }
-    code { background: #e2e8f0; padding: 2px 5px; border-radius: 4px; }
-    .referencia { text-align: center; }
-    .referencia img {
-      display: block;
-      width: 100%;
-      max-height: 750px;
-      object-fit: contain;
-      margin: auto;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-    }
-    .nota-imagen {
-      text-align: left;
-      margin: 14px 0 0;
-      color: #475569;
-      line-height: 1.5;
-      font-size: .95rem;
-    }
-    .editor-bloque p { color: #64748b; line-height: 1.5; }
-    .CodeMirror {
-      height: 500px;
-      border-radius: 8px;
-      border: 1px solid #334155;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 15px;
-      text-align: left;
-    }
-    .CodeMirror-linenumbers { background: #282a36; }
-    .CodeMirror-linenumber { color: #6272a4; }
-    .CodeMirror-cursor { border-left: 2px solid white; }
-    .CodeMirror-selected { background: #44475a !important; }
-    .botones { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .boton {
-      padding: 11px 18px; border-radius: 7px; border: none;
-      background: #2563eb; color: white; text-decoration: none;
-      font-weight: bold; cursor: pointer; font-size: 14px;
-    }
-    .boton:hover { background: #1d4ed8; }
-    .borrar { background: #dc2626; }
-    .borrar:hover { background: #b91c1c; }
-    .volver { background: #64748b; }
-    .volver:hover { background: #475569; }
-    #mensaje { margin-top: 12px; min-height: 20px; color: #16a34a; font-size: 14px; font-weight: bold; }
-    footer {
-      text-align: center; padding: 22px 20px; color: #64748b;
-      font-size: .9rem; border-top: 1px solid #e2e8f0;
-    }
-    @media (max-width: 850px) {
-      .parte-superior { grid-template-columns: 1fr; }
-      .referencia img { max-height: none; }
-      .bloque, .editor-bloque { padding: 20px; }
-    }
-  </style>
+    <!-- ESTILOS DE CODEMIRROR -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+
+    <!-- LIBRERIAS DE CODEMIRROR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f5f9;
+            color: #20283a;
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+
+        main {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 18px 50px;
+        }
+
+        /* SECCION SUPERIOR */
+
+        .parte-superior {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* BLOQUES */
+
+        .bloque,
+        .editor-bloque {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 16px #17255414;
+            min-width: 0;
+        }
+
+        .bloque h2,
+        .editor-bloque h2 {
+            color: #172554;
+            margin-top: 0;
+        }
+
+        /* ENUNCIADO */
+
+        .enunciado {
+            line-height: 1.6;
+        }
+
+        .enunciado p {
+            margin-bottom: 14px;
+        }
+
+        code {
+            background: #e2e8f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* CONTENEDOR DE IMAGENES */
+
+        .referencias {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* CADA REFERENCIA */
+
+        .referencia {
+            text-align: center;
+            min-width: 0;
+        }
+
+        .referencia img {
+            display: block;
+            width: 100%;
+            max-height: 850px;
+            object-fit: contain;
+            margin: auto;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* NOTA DE LAS IMAGENES */
+
+        .nota-imagen {
+            text-align: left;
+            margin: 14px 0 0;
+            color: #475569;
+            line-height: 1.5;
+            font-size: .95rem;
+        }
+
+        /* EDITOR */
+
+        .editor-bloque p {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .CodeMirror {
+            height: 500px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .CodeMirror-linenumbers {
+            background: #282a36;
+        }
+
+        .CodeMirror-linenumber {
+            color: #6272a4;
+        }
+
+        .CodeMirror-cursor {
+            border-left: 2px solid white;
+        }
+
+        .CodeMirror-selected {
+            background: #44475a !important;
+        }
+
+        /* BOTONES */
+
+        .botones {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .boton {
+            padding: 11px 18px;
+            border-radius: 7px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .boton:hover {
+            background: #1d4ed8;
+        }
+
+        .borrar {
+            background: #dc2626;
+        }
+
+        .borrar:hover {
+            background: #b91c1c;
+        }
+
+        .volver {
+            background: #64748b;
+        }
+
+        .volver:hover {
+            background: #475569;
+        }
+
+        /* MENSAJE */
+
+        #mensaje {
+            margin-top: 12px;
+            min-height: 20px;
+            color: #16a34a;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* PIE DE PAGINA */
+
+        footer {
+            text-align: center;
+            padding: 22px 20px;
+            color: #64748b;
+            font-size: .9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .referencias {
+                grid-template-columns: 1fr;
+            }
+
+            .referencia img {
+                max-height: none;
+            }
+
+            .bloque,
+            .editor-bloque {
+                padding: 20px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
-<header>
-  <h1>ACTIVIDAD_3</h1>
-  <p>Formulario de login HTML para la conexión con la base de datos</p>
-</header>
 
-<main>
-  <section class="parte-superior">
-    <article class="bloque enunciado">
-      <h2>Actividad: Login y base de datos</h2>
+    <!-- ENCABEZADO -->
 
-      <p>En esta actividad vamos a preparar el archivo <code>login.html</code>, que contiene el formulario para ingresar un usuario y una contraseña. Este formulario se conectará con el archivo PHP que trabajaremos a continuación.</p>
+    <header>
 
-      <p>Dentro de <code>&lt;head&gt;</code> colocamos <code>&lt;meta charset="utf-8"&gt;</code>, para definir la codificación de los caracteres, y <code>&lt;title&gt;</code>, para indicar el título de la página.</p>
+        <h1>ACTIVIDAD_3</h1>
 
-      <p>Dentro de <code>&lt;body&gt;</code> creamos un formulario con <code>&lt;form&gt;</code>. Sus atributos <code>class</code>, <code>action</code>, <code>method</code> y <code>accept-charset</code> permiten identificarlo, indicar a dónde se envían los datos, definir el método de envío y establecer la codificación. La estética de estas clases se verá a continuación.</p>
+        <p>
+            Formulario de login HTML para la conexión con la base de datos
+        </p>
 
-      <p>El título <code>&lt;h2&gt;</code> muestra “Usuario”. Luego agregamos dos campos <code>&lt;input&gt;</code>: uno para el usuario o e-mail y otro para la contraseña. Las etiquetas <code>&lt;br&gt;</code> generan saltos de línea. Los campos también incluyen una clase para su estética y el atributo <code>required</code>, que exige completar el campo antes de enviar el formulario.</p>
+    </header>
 
-      <p>Finalmente, el botón <code>&lt;button type="submit"&gt;</code> permite enviar el formulario al presionar “Login”.</p>
 
-      <p><strong>Importante:</strong> prestá especial atención al atributo <code>action="php/login.php"</code>. Allí indicamos la carpeta <code>php</code> y el archivo <code>login.php</code> que recibirá los datos. Lo desarrollaremos en la siguiente actividad. No olvides cerrar el formulario con <code>&lt;/form&gt;</code>.</p>
+    <main>
 
-      <p>Escribí la estructura HTML en el editor. Por ahora nos concentramos en el formulario; la conexión y validación con la base de datos se trabajarán desde PHP.</p>
-    </article>
+        <!-- SECCION SUPERIOR -->
 
-    <article class="bloque referencia">
-      <h2>Imagen de referencia</h2>
-      <img src="actividad_3.png" alt="Apuntes originales del formulario login.html">
-      <p class="nota-imagen">La imagen conserva el apunte original. Como recordatorio, al final del formulario agregá la etiqueta de cierre <code>&lt;/form&gt;</code>.</p>
-    </article>
-  </section>
+        <section class="parte-superior">
 
-  <section class="editor-bloque">
-    <h2>Tu resolución</h2>
-    <p>Escribí en el editor el código de <code>login.html</code> según el enunciado. El editor funciona de manera similar a Visual Studio Code.</p>
-    <textarea id="respuesta"></textarea>
 
-    <div class="botones">
-      <button class="boton" onclick="guardarRespuesta()">Guardar respuesta</button>
-      <button class="boton borrar" onclick="borrarRespuesta()">Borrar respuesta</button>
-      <a href="index.html" class="boton volver">← Volver</a>
-    </div>
-    <div id="mensaje" role="status" aria-live="polite"></div>
-  </section>
-</main>
+            <!-- ENUNCIADO -->
 
-<footer>
-  <div id="fecha"></div>
-  <div>© <span id="anio"></span> Fabian Ameneiros · Analista en Informática</div>
-</footer>
+            <article class="bloque enunciado">
 
-<script>
-  const ahora = new Date();
-  const opcionesFecha = { day: "2-digit", month: "2-digit", year: "numeric" };
-  document.getElementById("fecha").textContent =
-    "Fecha: " + ahora.toLocaleDateString("es-AR", opcionesFecha);
-  document.getElementById("anio").textContent = ahora.getFullYear();
+                <h2>Actividad: Login y base de datos</h2>
 
-  const editor = CodeMirror.fromTextArea(document.getElementById("respuesta"), {
-    mode: "htmlmixed",
-    theme: "dracula",
-    lineNumbers: true,
-    lineWrapping: false,
-    indentUnit: 2,
-    tabSize: 2,
-    indentWithTabs: false,
-    autofocus: false,
-    extraKeys: {
-      "Tab": function(cm) { cm.replaceSelection("  "); }
-    }
-  });
+                <p>
+                    En esta actividad vamos a trabajar con los archivos
+                    <code>login.html</code> y <code>login.php</code>,
+                    que forman parte del sistema de autenticación de usuarios.
+                    El archivo HTML contiene el formulario de acceso, mientras
+                    que el archivo PHP procesa los datos ingresados y verifica
+                    las credenciales mediante una consulta a la base de datos.
+                </p>
 
-  const mensaje = document.getElementById("mensaje");
-  const claveRespuesta = "respuesta_actividad_3";
+                <p>
+                    En la primera imagen se presenta la estructura del formulario
+                    HTML, donde utilizamos etiquetas como
+                    <code>&lt;form&gt;</code>,
+                    <code>&lt;input&gt;</code> y
+                    <code>&lt;button&gt;</code> para permitir el ingreso
+                    de un usuario y una contraseña.
+                </p>
 
-  window.addEventListener("load", function() {
-    const respuestaGuardada = localStorage.getItem(claveRespuesta);
-    if (respuestaGuardada !== null) {
-      editor.setValue(respuestaGuardada);
-      mensaje.textContent = "✓ Se recuperó tu respuesta guardada.";
-    }
-  });
+                <p>
+                    En la segunda imagen se encuentra el código PHP encargado
+                    de iniciar la sesión, recuperar los datos enviados mediante
+                    <code>$_POST</code>, realizar la consulta SQL y verificar
+                    si el usuario ingresado existe en la base de datos.
+                </p>
 
-  function guardarRespuesta() {
-    localStorage.setItem(claveRespuesta, editor.getValue());
-    mensaje.textContent = "✓ Respuesta guardada correctamente.";
-  }
+                <p>
+                    También se muestran las dos posibles respuestas del sistema:
+                    <strong>login correcto</strong>, cuando las credenciales
+                    son válidas, y <strong>login incorrecto</strong>, cuando
+                    los datos ingresados no coinciden.
+                </p>
 
-  function borrarRespuesta() {
-    if (confirm("¿Seguro que querés borrar la respuesta?")) {
-      editor.setValue("");
-      localStorage.removeItem(claveRespuesta);
-      mensaje.textContent = "La respuesta fue borrada.";
-    }
-  }
+                <p>
+                    <strong>Consigna:</strong>
+                    observá ambas referencias y transcribí los códigos
+                    en el editor, respetando la estructura, las etiquetas,
+                    las variables, las consultas SQL y las instrucciones
+                    de control utilizadas.
+                </p>
 
-  editor.on("change", function() {
-    localStorage.setItem(claveRespuesta, editor.getValue());
-  });
-</script>
+            </article>
+
+
+            <!-- REFERENCIAS -->
+
+            <div class="referencias">
+
+
+                <!-- REFERENCIA HTML -->
+
+                <article class="bloque referencia">
+
+                    <h2>Referencia 1: Formulario HTML</h2>
+
+                    <img
+                        src="actividad_3.png"
+                        alt="Código HTML del formulario de login">
+
+                    <p class="nota-imagen">
+                        Estructura del formulario de acceso.
+                    </p>
+
+                </article>
+
+
+                <!-- REFERENCIA PHP -->
+
+                <article class="bloque referencia">
+
+                    <h2>Referencia 2: Procesamiento PHP</h2>
+
+                    <img
+                        src="login_php.png"
+                        alt="Código PHP para validar el login">
+
+                    <p class="nota-imagen">
+                        Procesamiento de credenciales y validación del usuario.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- EDITOR -->
+
+        <section class="editor-bloque">
+
+            <h2>Tu resolución</h2>
+
+            <p>
+                Escribí en el editor el código correspondiente a la actividad
+                según las referencias. El editor funciona de manera similar
+                a Visual Studio Code.
+            </p>
+
+            <textarea id="respuesta"></textarea>
+
+
+            <!-- BOTONES -->
+
+            <div class="botones">
+
+                <button
+                    class="boton"
+                    onclick="guardarRespuesta()">
+
+                    Guardar respuesta
+
+                </button>
+
+
+                <button
+                    class="boton borrar"
+                    onclick="borrarRespuesta()">
+
+                    Borrar respuesta
+
+                </button>
+
+
+                <a href="index.html" class="boton volver">
+
+                    ← Volver
+
+                </a>
+
+            </div>
+
+
+            <div
+                id="mensaje"
+                role="status"
+                aria-live="polite">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PAGINA -->
+
+    <footer>
+
+        <div id="fecha"></div>
+
+        <div>
+            © <span id="anio"></span>
+            Fabian Ameneiros · Analista en Informática
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // FECHA ACTUAL
+
+        const ahora = new Date();
+
+        const opcionesFecha = {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        };
+
+        document.getElementById("fecha").textContent =
+            "Fecha: " + ahora.toLocaleDateString("es-AR", opcionesFecha);
+
+        document.getElementById("anio").textContent =
+            ahora.getFullYear();
+
+
+        // CONFIGURACION DE CODEMIRROR
+
+        const editor = CodeMirror.fromTextArea(
+            document.getElementById("respuesta"),
+            {
+                mode: "htmlmixed",
+                theme: "dracula",
+                lineNumbers: true,
+                lineWrapping: false,
+                indentUnit: 2,
+                tabSize: 2,
+                indentWithTabs: false,
+                autofocus: false,
+
+                extraKeys: {
+                    "Tab": function (cm) {
+                        cm.replaceSelection("  ");
+                    }
+                }
+            }
+        );
+
+
+        // MENSAJE Y CLAVE DE GUARDADO
+
+        const mensaje = document.getElementById("mensaje");
+
+        const claveRespuesta = "respuesta_actividad_3";
+
+
+        // RECUPERAR RESPUESTA GUARDADA
+
+        window.addEventListener("load", function () {
+
+            const respuestaGuardada =
+                localStorage.getItem(claveRespuesta);
+
+            if (respuestaGuardada !== null) {
+
+                editor.setValue(respuestaGuardada);
+
+                mensaje.textContent =
+                    "✓ Se recuperó tu respuesta guardada.";
+
+            }
+
+        });
+
+
+        // GUARDAR RESPUESTA
+
+        function guardarRespuesta() {
+
+            localStorage.setItem(
+                claveRespuesta,
+                editor.getValue()
+            );
+
+            mensaje.textContent =
+                "✓ Respuesta guardada correctamente.";
+
+        }
+
+
+        // BORRAR RESPUESTA
+
+        function borrarRespuesta() {
+
+            if (confirm("¿Seguro que querés borrar la respuesta?")) {
+
+                editor.setValue("");
+
+                localStorage.removeItem(claveRespuesta);
+
+                mensaje.textContent =
+                    "La respuesta fue borrada.";
+
+            }
+
+        }
+
+
+        // GUARDADO AUTOMATICO
+
+        editor.on("change", function () {
+
+            localStorage.setItem(
+                claveRespuesta,
+                editor.getValue()
+            );
+
+        });
+
+    </script>
+
 </body>
+
 </html>
