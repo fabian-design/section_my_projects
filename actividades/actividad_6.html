@@ -1,1 +1,293 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACTIVIDAD_6 | Habilidades y barra de progreso</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #20283a;
+    }
+
+    header {
+      background: #172554;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      letter-spacing: .5px;
+    }
+
+    header p {
+      margin: 0;
+      color: #dbeafe;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 28px 18px 50px;
+    }
+
+    .bloque {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 16px #17255414;
+      min-width: 0;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      color: #172554;
+      margin: 0 0 16px;
+    }
+
+    .enunciado {
+      line-height: 1.65;
+    }
+
+    .enunciado p {
+      margin: 0 0 13px;
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .referencias {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    figure {
+      margin: 0;
+      padding: 12px;
+      border: 1px solid #dbe3ef;
+      border-radius: 9px;
+      background: #f8fafc;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: 440px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 6px;
+    }
+
+    figcaption {
+      color: #475569;
+      font-size: .9rem;
+      line-height: 1.4;
+      padding-top: 10px;
+      font-weight: 600;
+    }
+
+    .nota {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 12px 15px;
+      border-radius: 5px;
+      line-height: 1.55;
+      margin-top: 15px;
+    }
+
+    .editor-bloque p {
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .CodeMirror {
+      height: 540px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .CodeMirror-linenumbers {
+      background: #282a36;
+    }
+
+    .CodeMirror-linenumber {
+      color: #6272a4;
+    }
+
+    .CodeMirror-cursor {
+      border-left: 2px solid white;
+    }
+
+    .CodeMirror-selected {
+      background: #44475a !important;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .boton {
+      padding: 11px 18px;
+      border-radius: 7px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .boton:hover {
+      background: #1d4ed8;
+    }
+
+    .borrar {
+      background: #dc2626;
+    }
+
+    .borrar:hover {
+      background: #b91c1c;
+    }
+
+    .volver {
+      background: #64748b;
+    }
+
+    .volver:hover {
+      background: #475569;
+    }
+
+    #mensaje {
+      margin-top: 12px;
+      min-height: 20px;
+      color: #16a34a;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 20px;
+      color: #64748b;
+      font-size: .9rem;
+      border-top: 1px solid #e2e8f0;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 800px) {
+      .referencias {
+        grid-template-columns: 1fr;
+      }
+
+      figure img {
+        height: auto;
+        max-height: 650px;
+      }
+
+      .bloque {
+        padding: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ACTIVIDAD_6</h1>
+    <p>HTML, CSS y JavaScript · Efecto de la barra de habilidades</p>
+  </header>
+
+  <main>
+    <section class="bloque enunciado">
+      <h2>Actividad: Crear una barra de progreso animada</h2>
+
+      <p>En esta actividad vamos a construir una sección de <strong>Habilidades</strong> utilizando HTML y CSS. Además,
+        incorporaremos JavaScript para activar una animación cuando la sección se encuentre a una determinada distancia
+        del borde superior de la ventana.</p>
+
+      <p>Primero, en el HTML, creá un contenedor con la clase <code>contenedor-skills</code> y el identificador
+        <code>skills</code>. Dentro agregá el título <code>HABILIDADES</code>, un elemento <code>skill</code> con su
+        bloque de información y una barra de progreso. En el ejemplo, la habilidad se llama <strong>Diseño y
+          Programación</strong> y su porcentaje es del <strong>70%</strong>.</p>
+
+      <p>Luego, en el CSS, definí el fondo del contenedor, su alineación y espaciado. Estilizá la tarjeta de habilidad,
+        la información, la lista/indicador y la barra. La clase <code>barra-progreso1</code> debe aplicar el ancho del
+        70% y la animación <code>progreso1</code> durante 2 segundos, hacia adelante (<code>forwards</code>). La
+        animación comienza con un ancho de 0 y termina en el 70%.</p>
+
+      <p>Finalmente, en JavaScript, creá la función <code>efectoHabilidades()</code>. Calculá la distancia entre la
+        parte superior del elemento <code>skills</code> y el borde inferior de la ventana. Si esa distancia es mayor o
+        igual a 180 píxeles, agregá la clase <code>barra-progreso1</code> al elemento <code>html</code>. Ejecutá la
+        función cuando se cargue la página mediante <code>window.addEventListener("load", efectoHabilidades)</code>.</p>
+
+      <p><strong>Consigna:</strong> observá las imágenes de referencia y escribí el código necesario para recrear la
+        sección de habilidades con su barra animada. Podés organizar el HTML, CSS y JavaScript en un solo archivo o
+        separar los bloques usando comentarios.</p>
+
+      <div class="nota"><strong>Importante:</strong> revisá la escritura exacta de las clases, los identificadores y las
+        llaves. El nombre de la clase que se agrega desde JavaScript debe coincidir con el selector CSS que activa la
+        animación.</div>
+    </section>
+
+    <section class="bloque">
+      <h2>Imágenes de referencia</h2>
+      <div class="referencias">
+        <figure>
+          <img src="img/01_javascript_efecto_habilidades.png" alt="JavaScript: efecto de la barra de habilidades">
+          <figcaption>JavaScript: efecto de la barra de habilidades</figcaption>
+        </figure>
+        <figure>
+          <img src="img/03_html_habilidades.png" alt="HTML: estructura del bloque de habilidades">
+          <figcaption>HTML: estructura del bloque de habilidades</figcaption>
+        </figure>
+        <figure>
+          <img src="img/04_css_contenedor_skills.png" alt="CSS: contenedor y estilos de habilidades">
+          <figcaption>CSS: contenedor y estilos de habilidades</figcaption>
+        </figure>
+        <figure>
+          <img src="img/05_css_barra_progreso_keyframes.png" alt="CSS: barra de progreso y animación">
+          <figcaption>CSS: barra de progreso y animación</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div id="fecha"></div>
+    <div>© <span id="anio"></span> Fabian Ameneiros · Analista en Informática</div>
+  </footer>
+
+  <script>
+    const ahora = new Date();
+    const opcionesFecha = { day: "2-digit", month: "2-digit", year: "numeric" };
+    document.getElementById("fecha").textContent =
+      "Fecha: " + ahora.toLocaleDateString("es-AR", opcionesFecha);
+    document.getElementById("anio").textContent = ahora.getFullYear();
+  </script>
+</body>
+
+</html>
